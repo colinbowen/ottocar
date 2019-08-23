@@ -83,6 +83,17 @@ Send GET Request to
 
 
 
+# Flask Monitoring Dashboard
+
+https://shielded-basin-67477.herokuapp.com/stats
+
+The Flask Monitoring Dashboard is designed to easily monitor your Flask application.
+
+* Monitor the performance and utilization
+* Profile requests and endpoints
+
+
+
 
 # Built with
 * Python 
