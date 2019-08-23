@@ -2,6 +2,7 @@
 import os
 from pymongo import MongoClient
 import json
+from bson.json_util import dumps
 
 cluster = MongoClient("mongodb+srv://dbUser1:6RYuCemlWE8J3XDq@cluster0-6rw4r.mongodb.net/test?retryWrites=true&w=majority")
 
