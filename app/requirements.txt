@@ -2,3 +2,5 @@ Flask
 Flask-Restful
 pymongo[srv]
 pymongo
+Flask-MonitoringDashboard
+Flask-Cors
