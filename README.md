@@ -26,9 +26,17 @@ Frontend available via
 
 Download or clone git repo
 
-Build server using docker-compose up --build from folder root.
+Build server from folder root using
 
-Use postman / localhost:5000 to view api
+`docker-compose up --build`
+
+Use postman to view api
+
+`localhost:5000/api/v1/cars`
+
+Run frontend with 
+
+`npm start`
 
 # API Requests Available
 
@@ -86,6 +94,9 @@ Send GET Request to
 # Flask Monitoring Dashboard
 
 https://shielded-basin-67477.herokuapp.com/stats
+
+username: admin
+password: admin
 
 The Flask Monitoring Dashboard is designed to easily monitor your Flask application.
 
