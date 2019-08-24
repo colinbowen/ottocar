@@ -10,7 +10,7 @@ class Header extends React.Component {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                 <Nav.Link href="https://app.colinbowen.now.sh/index.html">Home</Nav.Link>
-                <Nav.Link href="https://app.colinbowen.now.sh/index.html/dashboard">Stats</Nav.Link>
+                <Nav.Link href="https://shielded-basin-67477.herokuapp.com/dashboard">Stats</Nav.Link>
                 <Nav.Link href="http://github.com/colinbowen">GitHub</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
