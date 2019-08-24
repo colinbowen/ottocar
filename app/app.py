@@ -44,16 +44,11 @@ def get_car(car_id):
 
 @app.route('/api/v1/cars', methods=['POST'])
 def create_car():
-    if not request.json or not 'make' in request.json:
+    if not request.json:
         abort(400)
-    car = {
-        'id': request.json['id'],
-        'make': request.json['make'],
-        'model': request.json['model'],
-        'year': request.json['year'],
-        'active': False
-    }
-    # cars.append(car)
+    data = request.args or request.form or request.get_json(force=True, silent=True) or request.data
+    car = json.loads(data['car'])
+    print(car)
     mongo.cars_collection.insert_one(car)
 
     mongo.stats_collection.update_one({'type':'post'}, {"$inc": {'post': 1}}, upsert=True)

@@ -34,9 +34,15 @@ Use postman to view api
 
 `localhost:5000/api/v1/cars`
 
+Change into `frontend/app/`
+
 Run frontend with 
 
+`npm install`
+
 `npm start`
+
+
 
 # API Requests Available
 
