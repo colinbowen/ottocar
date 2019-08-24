@@ -2,6 +2,7 @@ import React from 'react'
 
 import Car from './Car';
 import data from './data';
+import Header from './Navigation'
 
 import { Button, Form, Navbar } from 'react-bootstrap';
 
@@ -60,9 +61,6 @@ class Layout extends React.Component{
 
         this.forceUpdate();
 
-        //this.setState({
-        //    cars: cars.concat({ id: newID, make: 'New Make', model: 'New Model', year: 'New Year', active: 'New Active'})
-        //})
         console.log("Clicked Add");
 
         
@@ -98,28 +96,23 @@ class Layout extends React.Component{
                     <Form.Group controlId="formBasicCheckbox" name="active">
                         <Form.Check name="active" type="checkbox" label="Active" />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
+                    <Button variant="primary" type="submit" className="btn-block">
+                        Add Car To DB
                     </Button>
                 </Form>;
 
     render() {
         return (
             <div id="Layout" className="container">
-                
+                <Header/>
                 <div className="col">
                     {this.newCar()}
                 </div>
                 <br></br>
                 <div className="container">
                     <div className="row">
-                    <div className="col">
-                        <a href='#' className="btn btn-primary btn-lg btn-block" onClick={this.addCar}>Add Car</a>
-                    </div>
                        
-                    <div className="col">
-                        <a href='#' className="btn btn-danger btn-lg btn-block" onClick={this.deleteCar}>Delete Car</a>
-                    </div>
+                    
                     </div>
                 </div>
 
