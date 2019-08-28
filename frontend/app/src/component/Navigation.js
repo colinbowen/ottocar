@@ -13,9 +13,6 @@ class Header extends React.Component {
                     <Nav.Link href="https://shielded-basin-67477.herokuapp.com/dashboard">Stats</Nav.Link>
                     <Nav.Link href="http://github.com/colinbowen">GitHub</Nav.Link>
                 </Nav>
-                <Nav className="ml-auto">
-                    <Nav.Link href="https://app.colinbowen.now.sh/">Refresh</Nav.Link>
-                </Nav>
             </Navbar.Collapse>
             </Navbar>
         )}}
