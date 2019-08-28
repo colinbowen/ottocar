@@ -4,12 +4,13 @@ import Car from './Car';
 import data from './data';
 import Header from './Navigation'
 
-import { Button, Form, Navbar } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 
 
 import axios from 'axios';
 
 import './Layout.css'
+  
 
 class Layout extends React.Component{
     componentWillMount() {
@@ -23,13 +24,23 @@ class Layout extends React.Component{
         .then(res => res.json())
         .then((data) => {
           this.setState({ cars: data })
-          console.log(this.state.cars)
+          //console.log(this.state.cars)
         })
         .catch(console.log)
       }
     
       
-
+    getCars () {
+        fetch('https://shielded-basin-67477.herokuapp.com/api/v1/cars')
+        .then(res => res.json())
+        .then((data) => {
+          this.setState({ cars: data })
+          console.log(this.state.cars)
+          console.log("From getCars function")
+        })
+        .catch(console.log)
+    }
+    
 
     addCar = (e) => {
         e.preventDefault();
@@ -59,7 +70,8 @@ class Layout extends React.Component{
             console.log(error);
           });
 
-        this.forceUpdate();
+        
+        this.getCars()
 
         console.log("Clicked Add");
 
@@ -72,10 +84,14 @@ class Layout extends React.Component{
         console.log("Clicked Edit");
     }
 
-    deleteCar = (e) => {
+    deleteCar = (car_id, e) => {
         e.preventDefault();
 
-        console.log("Clicked Delete");
+        console.log(e)
+        console.log(car_id)
+        // var car_id = 0;
+
+    
     }
 
     newCar = () => 
@@ -121,7 +137,7 @@ class Layout extends React.Component{
                 <div className="col">
                     <div id="grid">
                         {this.state.cars.map(car_info => 
-                        <Car key={car_info.id} make={car_info.make} model={car_info.model} year={car_info.year} />
+                        <Car key={car_info.id} id = {car_info.id} make={car_info.make} model={car_info.model} year={car_info.year} active={car_info.active} deleteCar={this.deleteCar.bind(this)}/>
                         )}
                     </div>
                 </div>
