@@ -24,7 +24,6 @@ class Layout extends React.Component{
         .then(res => res.json())
         .then((data) => {
           this.setState({ cars: data })
-          //console.log(this.state.cars)
         })
         .catch(console.log)
       }
@@ -70,28 +69,10 @@ class Layout extends React.Component{
             console.log(error);
           });
 
-        
         this.getCars()
-
         console.log("Clicked Add");
 
         
-    }
-
-    editCar= (e) => {
-        e.preventDefault();
-
-        console.log("Clicked Edit");
-    }
-
-    deleteCar = (car_id, e) => {
-        e.preventDefault();
-
-        console.log(e)
-        console.log(car_id)
-        // var car_id = 0;
-
-    
     }
 
     newCar = () => 
@@ -137,7 +118,7 @@ class Layout extends React.Component{
                 <div className="col">
                     <div id="grid">
                         {this.state.cars.map(car_info => 
-                        <Car key={car_info.id} id = {car_info.id} make={car_info.make} model={car_info.model} year={car_info.year} active={car_info.active} deleteCar={this.deleteCar.bind(this)}/>
+                        <Car key={car_info.id} id = {car_info.id} make={car_info.make} model={car_info.model} year={car_info.year} active={car_info.active}/>
                         )}
                     </div>
                 </div>

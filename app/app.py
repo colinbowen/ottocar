@@ -57,17 +57,29 @@ def create_car():
 
 @app.route('/api/v1/cars/<int:car_id>', methods=['PUT'])
 def update_car(car_id):
-    if request.json['make']:
-        make = request.json['make']
-    if request.json['model']:
-        model = request.json['model']
-    if request.json['year']:
-        year = request.json['year']
-    if request.json['active']:
-        active = request.json['active']
+    if not request.json:
+        abort(400)
+    data = request.args or request.form or request.get_json(force=True, silent=True) or request.data
+    car = json.loads(data['car'])
+    print(car)
+    if 'make' in car:
+        make = car['make']
+        print(make)
+        mongo.cars_collection.update_one({'id' : car_id}, {"$set": {'make': make}})
+    if 'model' in car:
+        model = car['model']
+        print(model)
+        mongo.cars_collection.update_one({'id' : car_id}, {"$set": {'model': model}})
+    if 'year' in car:
+        year = car['year']
+        print(year)
+        mongo.cars_collection.update_one({'id' : car_id}, {"$set": {'year': year}})
+    if 'active' in car:
+        active = car['active']
+        print(active)
+        mongo.cars_collection.update_one({'id' : car_id}, {"$set": {'active': active}})
     
-    car = {'make': make, 'model': model, 'year': year, 'active': active}
-    mongo.cars_collection.update_one({'id' : car_id}, {"$set": car})
+    mongo.stats_collection.update_one({'type':'put'}, {"$inc": {'put': 1}}, upsert=True)
     return jsonify({'car': car})
 
 

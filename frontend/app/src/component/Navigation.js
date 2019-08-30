@@ -11,7 +11,7 @@ class Header extends React.Component {
                 <Nav className="mr-auto">
                     <Nav.Link href="https://app.colinbowen.now.sh/index.html">Home</Nav.Link>
                     <Nav.Link href="https://shielded-basin-67477.herokuapp.com/dashboard">Stats</Nav.Link>
-                    <Nav.Link href="http://github.com/colinbowen">GitHub</Nav.Link>
+                    <Nav.Link href="http://github.com/colinbowen/ottocar">GitHub</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Navbar>
